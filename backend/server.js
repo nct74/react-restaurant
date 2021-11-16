@@ -1,19 +1,16 @@
 const express = require("express")
 const app = express()
+const path = require("path")
 
-const mysql = require("mysql")
-const connection = mysql.createConnection({
-	host: "localhost:3306",
-	user: "me",
-	password: "luong156",
-	database: "csdl",
-})
+if (process.env.NODE_ENV === "production") {
+	const pathToFrontend = path.join(path.resolve(), "frontend")
 
-connection.connect((err) => {
-	if (err) throw err
+	app.use(express.static(pathToFrontend))
 
-	console.log("Database is running")
-})
+	app.get("*", (req, res) => {
+		res.sendFile(path.join(pathToFrontend, "build", "index.html"))
+	})
+}
 
 const PORT = process.env.PORT || 4000
 
