@@ -5,13 +5,18 @@ const app = express()
 const path = require("path")
 const mysql = require("mysql")
 
-const connection = mysql.createConnection(process.env.DATABASE_URL)
+const connection = mysql.createConnection({
+	host: process.env.HOST,
+	user: process.env.USER,
+	password: process.env.PASSWORD,
+	database: process.env.DATABASE
+})
 
 connection.connect((err) => {
 	if(err)
 		throw err;
 
-	console.log("Datbase connected.")
+	console.log("Database connected.")
 })
 
 if (process.env.NODE_ENV === "production") {
