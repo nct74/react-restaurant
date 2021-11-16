@@ -5,7 +5,7 @@ const app = express()
 const path = require("path")
 const mysql = require("mysql")
 
-const connection = mysql.createPool(process.env.DATABASE_URL)
+const connection = mysql.createConnection(process.env.DATABASE_URL)
 
 connection.connect((err) => {
 	if(err)
