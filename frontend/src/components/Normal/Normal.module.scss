@@ -1,0 +1,46 @@
+.greeting {
+	width: 1200px;
+	background-color: #fff;
+	padding: 24px 0;
+	margin-bottom: 24px;
+
+	display: grid;
+	grid-template-columns: 107.05px 350px 107.05px;
+	column-gap: 32px;
+	justify-content: center;
+	justify-items: center;
+
+	[class="heading"] {
+		font-size: 24px;
+		font-weight: bold;
+		color: #2e3c40;
+		line-height: 1.5;
+		text-align: center;
+	}
+
+	[class="action"] {
+		margin-top: 20px;
+		display: flex;
+		justify-content: center;
+
+		button {
+			margin-right: 16px;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+.container {
+    width: 100vw;
+
+    @media only screen and (min-width: 500px) {
+        width: 86vw;
+    }
+
+    @media only screen and (min-width: 1400px) {
+        width: 1200px;
+    }
+}

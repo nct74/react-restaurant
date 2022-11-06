@@ -1,0 +1,1 @@
+Mở 2 terminal

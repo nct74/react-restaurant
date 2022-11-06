@@ -3,21 +3,18 @@ require("dotenv").config()
 const express = require("express")
 const app = express()
 const path = require("path")
-const mysql = require("mysql")
+const userRoutes = require("./routes/userRoutes")
+const questionRoutes = require("./routes/questionRoutes")
+const orderRoutes = require("./routes/orderRoutes")
 
-const connection = mysql.createConnection({
-	host: process.env.HOST,
-	user: process.env.USER,
-	password: process.env.PASSWORD,
-	database: process.env.DATABASE
-})
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
-connection.connect((err) => {
-	if(err)
-		throw err;
+require("./dbConfig")
 
-	console.log("Database connected.")
-})
+app.use("/api/users", userRoutes)
+app.use("/api/questions", questionRoutes)
+app.use("/api/orders", orderRoutes)
 
 if (process.env.NODE_ENV === "production") {
 	const pathToFrontend = path.join(path.resolve(), "frontend", "build")

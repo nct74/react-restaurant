@@ -1,0 +1,10 @@
+.content {
+	padding-top: 72px;
+	width: 100%;
+	background-color: #eee;
+
+	@media only screen and (min-width: 500px) {
+		display: flex;
+		justify-content: center;
+	}
+}

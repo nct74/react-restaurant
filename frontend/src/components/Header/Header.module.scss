@@ -1,0 +1,45 @@
+.container {
+    width: 100%;
+    background-color: #fff;
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid rgba(34, 40, 49, 0.3);
+}
+
+.header {
+    width: 1200px;
+    height: 56px;
+    background-color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 16px;
+
+    @media only screen and (min-width: 420px) {
+        padding: 0 32px;
+    }
+
+    img {
+        cursor: pointer;
+    }
+
+    [class="logout"] {
+        margin-left: 24px;
+    }
+}
+
+.button {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    line-height: 1;
+    color: #fff;
+    background-color: #d65a31;
+    border-radius: 15px;
+    padding: 8px 20px;
+}
